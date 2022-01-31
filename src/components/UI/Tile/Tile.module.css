@@ -1,0 +1,27 @@
+.open {
+   display: flex;
+   height: 100%;
+   border-radius: 50%;
+}
+
+.closed {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    height: 100%;
+}
+
+.hidden {
+    background-color: wheat;
+    display: flex;
+    height: 100%;
+    cursor: pointer;
+}
+
+.default {
+    border: 1rem solid lightslategrey;
+    min-height: 6rem;
+    padding: 5px;
+}

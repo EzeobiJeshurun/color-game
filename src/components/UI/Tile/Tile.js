@@ -1,4 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
+import clsx from "clsx";
+import styles from "./Tile.module.css";
 
 const handleClick = (item, onClick) => {
   onClick(item);
@@ -8,22 +10,22 @@ const Cube = ({ item, onClick }) => {
   const [content, setContent] = useState(null);
 
   useEffect(() => {
-    switch (item.status) {
+    switch (item?.status) {
       case "open":
-        setContent(<Open />);
+        setContent(<Open color={item.color}/>);
         break;
       case "closed":
         setContent(<Closed />);
         break;
       case "matched":
-        setContent(<Matched color={item.color} />);
+        setContent(<Matched />);
         break;
       default:
         setContent(<Hidden item={item} onClick={onClick} />);
     }
   }, [item, item.status, onClick]);
 
-  return <Fragment>{content}</Fragment>;
+  return <div className={clsx(styles.default,"col-2")}>{content}</div>;
 };
 
 export default Cube;
@@ -31,6 +33,7 @@ export default Cube;
 export const Hidden = ({ item, onClick }) => {
   return (
     <div
+      className={styles.hidden}
       onClick={(event) => {
         event.preventDefault();
         handleClick(item, onClick);
@@ -39,14 +42,14 @@ export const Hidden = ({ item, onClick }) => {
   );
 };
 
-export const Open = () => {
-  return <span></span>;
+export const Matched = () => {
+  return <Fragment/>;
 };
 
 export const Closed = () => {
-  return <span>Closed</span>;
+  return <div className={styles.closed}><span>Closed</span></div>;
 };
 
-export const Matched = ({ color }) => {
-  return <span style={{ backgroundColor: color }}></span>;
+export const Open = ({ color }) => {
+  return <span className={styles.open} style={{ backgroundColor: color }}></span>;
 };
