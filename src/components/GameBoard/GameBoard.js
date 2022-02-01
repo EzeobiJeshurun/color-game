@@ -5,7 +5,7 @@ import React, {
   useRef,
   useEffect,
 } from "react";
-import { tiles } from "../../../data";
+import { tiles } from "../../data";
 import Cube from "../Tile";
 import clsx from "clsx";
 import styles from "./GameBoard.module.css";
@@ -29,6 +29,8 @@ const GameBoard = () => {
   }, []);
   const resetGame = () => {
     setAllPicks(shufflePicks(tiles));
+    setScore(0);
+    setPlayCount(0);
   };
   const [allPicks, setAllPicks] = useState(getPicks);
   const [currentPicks, setCurrentPicks] = useState([]);

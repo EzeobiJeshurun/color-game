@@ -1,6 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import GameBoard from './components/UI/GameBoard';
+import GameBoard from './components/GameBoard';
 
 function App() {
   return (

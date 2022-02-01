@@ -51,5 +51,5 @@ export const Closed = () => {
 };
 
 export const Open = ({ color }) => {
-  return <span className={styles.open} style={{ backgroundColor: color }}></span>;
+  return <span className={styles.open} style={{ backgroundColor: color }}>{color}</span>;
 };
